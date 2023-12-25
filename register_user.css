@@ -1,0 +1,269 @@
+.button-login{
+  font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: normal;
+    text-align: center;
+    width: 310px;
+    height: 52px;
+    background-color: #284b63; /* Set the background color to #284b63 */
+    border-radius: 10px;
+}
+
+.welcome-list{
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: 400;
+  color: #b3b3b3;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.sign-in{
+  font-family: "Jost-ExtraBold", Helvetica;
+  font-weight: 800;
+  color: #284b63;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+
+.create-account{
+  font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #3c6e71;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: normal;
+    text-decoration: none;
+}
+.not-registered{
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: 400;
+  color: #b3b3b3;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+.login-admin{
+  font-family: "Poppins-Bold", Helvetica;
+  font-weight: 700;
+  color: #3c6e71;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.login-user {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .login-user .div {
+    background-color: #ffffff;
+    width: 1440px;
+    height: 1024px;
+    position: relative;
+  }
+  
+  .login-user .key-rafiki {
+    position: absolute;
+    width: 806px;
+    height: 792px;
+    top: 143px;
+    left: 17px;
+  }
+  
+  .login-user .text-wrapper {
+    position: absolute;
+    top: 237px;
+    left: 941px;
+    font-family: "Jost-ExtraBold", Helvetica;
+    font-weight: 800;
+    color: #284b63;
+    font-size: 32px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .login-user .welcome-to-list {
+    position: absolute;
+    top: 294px;
+    left: 871px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #b3b3b3;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .login-user .span {
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #b3b3b3;
+    font-size: 15px;
+    letter-spacing: 0;
+  }
+  
+  .login-user .text-wrapper-2 {
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+  }
+  
+  .login-user .line {
+    top: 433px;
+    position: absolute;
+    width: 310px;
+    height: 1px;
+    left: 860px;
+    object-fit: cover;
+  }
+  
+  .login-user .img {
+    top: 496px;
+    position: absolute;
+    width: 310px;
+    height: 1px;
+    left: 860px;
+    object-fit: cover;
+  }
+  
+  .login-user .text-wrapper-3 {
+    position: absolute;
+    top: 403px;
+    left: 860px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #b3b3b3;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .login-user .text-wrapper-4 {
+    position: absolute;
+    top: 463px;
+    left: 860px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #b3b3b3;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  /* input[name="u"], input[name="p"] {
+    width: 200px; 
+    height: 20px; 
+    margiinpun-bottom: 10px; 
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000; 
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: normal;
+    border-radius: 5px; 
+    border: 1px solid transparent; 
+    padding: 5px;
+  }
+
+  input[name="u"] {
+    position: absolute;
+    top: 400px;
+    left: 860px; 
+  }
+
+  input[name="p"] {
+    position: absolute;
+    top: 463px;
+    left: 860px; 
+  } */
+
+  .overlap-group {
+    position: absolute;
+    width: 310px;
+    height: 52px;
+    top: 567px;
+    left: 860px;
+    background-color: #284b63; /* Set the background color to #284b63 */
+    border-radius: 10px;
+  }
+
+  .text-wrapper-5 {
+    position: absolute;
+    top: 10px;
+    left: 125px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: normal;
+    text-align: center; /* Center the text inside the button */
+  }
+
+  .text-wrapper-5 button {
+    background-color: #284b63; /* Set the background color to #284b63 */
+    border: none;
+    color: #ffffff;
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .login-user .text-wrapper-6 {
+    position: absolute;
+    top: 641px;
+    left: 1006px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #3c6e71;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .login-user .text-wrapper-7 {
+    position: absolute;
+    top: 684px;
+    left: 941px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #3c6e71;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .login-user .text-wrapper-8 {
+    position: absolute;
+    top: 641px;
+    left: 882px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #b3b3b3;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: normal;
+  }  
+
+  .text-decoration-none {
+    text-decoration: none !important;
+    /* The !important is used to ensure it overrides other styles */
+  }
+
+  .text-white {
+    color: white !important;
+  }
+  
+  .text-black {
+    color: #3c6e71 !important;
+  }

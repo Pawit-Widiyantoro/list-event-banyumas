@@ -1,0 +1,169 @@
+.login-admin {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .login-admin .div {
+    background-color: #ffffff;
+    width: 1440px;
+    height: 1024px;
+    position: relative;
+  }
+  
+  .login-admin .key-rafiki {
+    position: absolute;
+    width: 806px;
+    height: 792px;
+    top: 116px;
+    left: 70px;
+  }
+  
+  .login-admin .sign-in {
+    position: absolute;
+    top: 156px;
+    left: 948px;
+    font-family: "Jost-ExtraBold", Helvetica;
+    font-weight: 800;
+    color: #284b63;
+    font-size: 32px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .login-admin .welcome-to-list {
+    position: absolute;
+    top: 267px;
+    left: 924px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #b3b3b3;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .login-admin .text-wrapper {
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #b3b3b3;
+    font-size: 15px;
+    letter-spacing: 0;
+  }
+  
+  .login-admin .span {
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+  }
+  
+  .login-admin .line {
+    top: 406px;
+    position: absolute;
+    width: 310px;
+    height: 1px;
+    left: 913px;
+    object-fit: cover;
+  }
+  
+  .login-admin .img {
+    top: 469px;
+    position: absolute;
+    width: 310px;
+    height: 1px;
+    left: 913px;
+    object-fit: cover;
+  }
+  
+  .login-admin .text-wrapper-2 {
+    position: absolute;
+    top: 376px;
+    left: 913px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #b3b3b3;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .login-admin .text-wrapper-3 {
+    position: absolute;
+    top: 436px;
+    left: 913px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #b3b3b3;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .login-admin .overlap-group {
+    position: absolute;
+    width: 310px;
+    height: 52px;
+    top: 540px;
+    left: 913px;
+    border-radius: 10px;
+  }
+  
+  .login-admin .rectangle {
+    position: absolute;
+    width: 310px;
+    height: 52px;
+    top: 0;
+    left: 0;
+    background-color: #284b63;
+    border-radius: 10px;
+  }
+  
+  .login-admin .text-wrapper-5 {
+    position: absolute;
+    top: 10px; /* Sesuaikan dengan kebutuhan Anda */
+    left: 120px; /* Sesuaikan dengan kebutuhan Anda */
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .text-wrapper-5 button {
+    background-color: #284b63; /* Set the background color to #284b63 */
+    border: none;
+    color: #ffffff;
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  input[name="u"], input[name="p"] {
+    width: 200px; /* Adjust the width as needed */
+    height: 20px; /* Adjust the height as needed */
+    margin-bottom: 10px; /* Add some spacing between inputs */
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000; /* Adjust the color as needed */
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: normal;
+    border-radius: 5px; /* Add border-radius for a rounded look */
+    border: 1px solid transparent; /* Set the border to transparent */
+    padding: 5px; /* Add padding for better appearance */
+  }
+
+  input[name="u"] {
+    position: absolute;
+    top: 374px;
+    left: 913px;
+  }
+
+  input[name="p"] {
+    position: absolute;
+    top: 436px;
+    left: 913px;
+  }

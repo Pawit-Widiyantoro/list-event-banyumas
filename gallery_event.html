@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="gallery_event.css" />
+  </head>
+  <body>
+    <div class="gallery-event">
+      <div class="div">
+        <div class="overlap-group">
+          <img class="account-pin-circle" src="img/account-pin-circle-fill-1-1.svg" />
+          <div class="rectangle"></div>
+          <div class="rectangle-2"></div>
+          <div class="list-event-banyumas">List Event <span></span></div>
+          <img class="ticket" src="img/icons8-ticket-100 1.png" />
+          <div class="text-wrapper">Search</div>
+          <div class="rectangle-3"></div>
+          <div class="text-wrapper-2">Gallery Events</div>
+          <img class="element" src="img/1792-1.png" />
+          <img class="account-pin-circle" src="img/account-pin-circle-fill-1-1.svg" />
+          <img class="shopping-cart-fill" src="img/shopping-cart-fill-1-1.svg" />
+          <img class="notification-line" src="img/notification-2-line-1.svg" />
+          <img class="search-line" src="img/search-2-line-1.svg" />
+          <div class="text-wrapper-3"><a href="home_page_user.html" class="text-decoration-none text-black">Home</a></div>
+          <div class="text-wrapper-4"><a href="detail_event.html" class="text-decoration-none text-black">Event</a></div>
+          <div class="text-wrapper-5"><a href="category.html" class="text-decoration-none text-black">Category</a></div>
+          <div class="text-wrapper-6"><a href="gallery_event.html" class="text-decoration-none text-black">Gallery Events</a></div>
+          <div class="rectangle-4"></div>
+        </div>
+        <div class="text-wrapper-7">Some photos from Event</div>
+        <img class="gambar" src="img/gambar1-1.png" />
+        <img class="img" src="img/gambar2-1.png" />
+        <img class="gambar-2" src="img/gambar3-1.png" />
+        <img class="gambar-3" src="img/gambar4-1.png" />
+        <img class="gambar-4" src="img/gambar6-1.png" />
+        <img class="gambar-5" src="img/gambar7-1.png" />
+        <img class="gambar-6" src="img/gambar5-1.png" />
+        <img class="gambar-7" src="img/gambar8-1.png" />
+        <img class="gambar-8" src="img/gambar1-1.png" />
+        <img class="gambar-9" src="img/gambar2-2.png" />
+        <img class="gambar-10" src="img/gambar3-1.png" />
+        <img class="gambar-11" src="img/gambar4-1.png" />
+        <img class="gambar-12" src="img/gambar6-1.png" />
+        <img class="gambar-13" src="img/gambar7-1.png" />
+        <img class="gambar-14" src="img/gambar5-1.png" />
+        <img class="gambar-15" src="img/gambar8-1.png" />
+        <img class="gambar-16" src="img/gambar1-1.png" />
+        <img class="gambar-17" src="img/gambar2-1.png" />
+        <img class="gambar-18" src="img/gambar3-1.png" />
+        <img class="gambar-19" src="img/gambar4-1.png" />
+        <img class="gambar-20" src="img/gambar6-1.png" />
+        <img class="gambar-21" src="img/gambar7-1.png" />
+        <img class="gambar-22" src="img/gambar5-1.png" />
+        <img class="gambar-23" src="img/gambar8-1.png" />
+        <div class="overlap">
+          <div class="text-wrapper-8">List Event Banyumas</div>
+          <p class="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+          <div class="vector-wrapper"><img class="vector" src="img/vector-16.svg" /></div>
+          <div class="overlap-2"></div>
+          <div class="img-wrapper"><img class="vector-2" src="img/vector-14.svg" /></div>
+          <div class="twitter-wrapper"><img class="twitter" src="img/icons8-twitter-1.svg" /></div>
+          <p class="copyright-list-event">
+            <span class="span">Copyright</span>
+            <span class="text-wrapper-9"> List Event Banyumas</span>
+            <span class="span">. All Rights Reserved</span>
+          </p>
+          <div class="overlap-3"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Function to handle logout
+        function handleLogout() {
+          // Use the confirm dialog to ask for user confirmation
+          var userConfirmed = confirm('Anda akan logout. Apakah Anda yakin ingin kembali ke halaman utama?');
+
+          // If the user confirms, navigate to the "Landing_Page.html" page
+          if (userConfirmed) {
+            window.location.href = 'Landing_Page.html';
+          }
+        }
+
+        // Add click event listener to the "shopping-cart-fill" icon
+        document.querySelector('.shopping-cart-fill').addEventListener('click', function () {
+          // Navigate to the "cart.html" page
+          window.location.href = 'cart.html';
+        });
+
+        // Add click event listener to the "account-pin-circle" icon
+        document.querySelector('.account-pin-circle').addEventListener('click', handleLogout);
+
+        // You can add more event listeners or functions as needed
+      });
+    </script>
+  </body>
+</html>
