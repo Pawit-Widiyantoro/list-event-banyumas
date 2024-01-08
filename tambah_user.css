@@ -1,0 +1,33 @@
+body{
+    margin: 1%;
+  }
+  .custom-navbar{
+    height: 205px;
+    background-color: #284b63;
+  }
+  .custom-brand{
+    font-family: "Jost-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 32px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .navbar-title{
+    font-family: "Jost-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 32px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .table-title{
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #353535;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
