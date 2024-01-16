@@ -1,5 +1,5 @@
 <?php
-
+require_once('TCPDF-main/tcpdf.php');
 // set connection
 $conn = mysqli_connect("localhost", "root", "", "db_list_event");
 
@@ -138,8 +138,93 @@ function checkout($data) {
         // insert data
         mysqli_query($conn, $query);
             
-        return mysqli_affected_rows($conn);
+        $affectedRows = mysqli_affected_rows($conn);
+         // Add checkout data to the array
+         $checkoutData[] = [
+            'id_tiket' => $id_tiket,
+            'id_user' => $id_user,
+            'id_event' => $id_event,
+            'event_harga' => $event_harga,
+            'event_quantity' => $event_quantity,
+            'event_tgl' => $event_tgl,
+            'metode_pembayaran' => $metode_pembayaran,
+            'event_jam' => $event_jam,
+        ];
     }
+    return ['affected_rows' => $affectedRows, 'checkout_data' => $checkoutData];
+}
+
+function generatePDF($checkoutData) {
+    // Extract values from the checkout data array
+    $id_tiket = $checkoutData['id_tiket'];
+    $id_user = $checkoutData['id_user'];
+    $id_event = $checkoutData['id_event'];
+    $event_harga = $checkoutData['event_harga'];
+    $event_quantity = $checkoutData['event_quantity'];
+    $event_tgl = $checkoutData['event_tgl'];
+    $metode_pembayaran = $checkoutData['metode_pembayaran'];
+    $event_jam = $checkoutData['event_jam'];
+
+    // Rest of your PDF generation code...
+    $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+    // Set document information
+    $pdf->SetCreator('Your Creator');
+    $pdf->SetAuthor('Your Author');
+    $pdf->SetTitle('Your Title');
+    $pdf->SetSubject('Your Subject');
+
+    // Add a page
+    $pdf->AddPage();
+
+    // Set font
+    $pdf->SetFont('dejavusans', '', 12);
+
+   // Add content to the PDF
+    $html = '
+    <style>
+        .ticket {
+            width: 100%;
+            max-width: 400px; /* Adjust the width as needed */
+            margin: 0 auto;
+            border: 2px solid #000;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .id-ticket {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .item {
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <div class="ticket">
+        <div class="id-ticket">ID Tiket: ' . $id_tiket . '</div>
+        <div class="item"><strong>Name:</strong> ' . $id_user . '</div>
+        <div class="item"><strong>Event:</strong> ' . $id_event . '</div>
+        <div class="item"><strong>Price:</strong> ' . $event_harga . '</div>
+        <div class="item"><strong>Quantity:</strong> ' . $event_quantity . '</div>
+        <div class="item"><strong>Date:</strong> ' . $event_tgl . '</div>
+        <div class="item"><strong>Payment Method:</strong> ' . $metode_pembayaran . '</div>
+        <div class="item"><strong>Time:</strong> ' . $event_jam . '</div>
+    </div>';
+
+    // Continue with the existing code
+    $pdf->writeHTML($html);
+
+    // Specify the path to save the PDF file
+    $pdfFilePath = 'C:/Users/Lenovo/Downloads/invoice_' . date('YmdHis') . '.pdf';
+
+    // Save the PDF file
+    $pdf->Output($pdfFilePath, 'F');
+
+    // You may also want to store the PDF file name or path in your database or associate it with the user's order
+    return $pdfFilePath;
 }
 
 ?>

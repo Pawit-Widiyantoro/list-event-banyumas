@@ -7,13 +7,20 @@ if(!isset($_SESSION['login_user'])){
   header("Location: login_user.php");
 }
 
-if(isset($_POST['checkout'])){
-  if(checkout($_POST) > 0){
-    echo "<script>
-        alert('Tiket berhasil ditambahkan');
-        window.location.href = 'done_checkout.php';
+if (isset($_POST['checkout'])) {
+  $checkoutResult = checkout($_POST);
+
+  if ($checkoutResult['affected_rows'] > 0) {
+      foreach ($checkoutResult['checkout_data'] as $checkoutItem) {
+          // Generate PDF for each checkout item
+          generatePDF($checkoutItem);
+      }
+
+      echo "<script>
+          alert('Tiket berhasil ditambahkan');
+          window.location.href = 'done_checkout.php';
         </script>";
-  }else{
+  } else {
       mysqli_error($conn);
   }
 }
