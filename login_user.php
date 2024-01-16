@@ -95,7 +95,7 @@ if(isset($_POST['submit'])){
             <button type="submit" name="submit" class="btn btn-primary button-login">Login</button>
           </form>
           <p style="margin-top: 10px;" class="not-registered">Not Registered? <a href="register_user.php" class="create-account">Create an Account</a></p>
-          <a href="login_admin.html" class="login-admin">Login Administrator</a>
+          <a href="login_admin.php" class="login-admin">Login Administrator</a>
           <div class="mt-3">
               <?php if(isset($error)) : ?>
                   <p style="color:red;font-style:italic;">Username atau Password salah!</p>

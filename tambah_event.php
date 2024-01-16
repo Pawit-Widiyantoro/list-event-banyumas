@@ -1,3 +1,31 @@
+<?php
+session_start();
+require 'pungsi.php';
+//cek apakah sudah masuk ke dalam session melalui login
+if(!isset($_SESSION["login"])){
+  header("Location: login_admin.php");
+  exit;
+}
+
+//cek apakah submit pernah diklik atau belum
+if(isset($_POST["submit"])){
+
+  //cek apakah data berhasil ditambahkan atau tidak
+  if(tambahEvent($_POST) > 0){
+    echo "<script>
+    alert('Data event baru berhasil ditambahkan!');
+    document.location.href = 'admin_event.php';
+    </script>";
+  }else{
+    echo "<script>
+    alert('Data event baru gagal ditambahkan!');
+    document.location.href = 'admin_event.php';
+    </script>";
+  }
+  
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -40,34 +68,42 @@
                 <div class="card-body" style="margin: 0;padding: 0;">
                     <div class="table-title text-center p-3" style="  
                     height: 60px; background-color: #D9D9D9;">
-                        <p>Tambah User</p>
+                        <p>Tambah Event</p>
                     </div>
                     <div class="container" style="padding-right: 150px; padding-left: 150px;">
 
-                        <form class="my-5">
+                        <form action="" method="post" enctype="multipart/form-data" class="my-5">
                             <div class="mb-3">
-                              <label for="exampleInputEmail1" class="form-label">Nama User</label>
-                              <input type="text" class="form-control" aria-describedby="nama_event">
+                              <label class="form-label">Poster</label>
+                              <input type="file" name="poster" class="form-control" aria-describedby="poster" id="poster">
                             </div>
                             <div class="mb-3">
-                              <label for="email" class="form-label">Email</label>
-                              <input type="email" class="form-control" id="email">
+                              <label class="form-label">Nama Event</label>
+                              <input type="text" name="nama_event" class="form-control" aria-describedby="nama_event" id="nama_event" required>
                             </div>
                             <div class="mb-3">
-                              <label for="no_hp" class="form-label">No HP</label>
-                              <input type="text" class="form-control" id="no_hp">
+                              <label class="form-label">Tgl Event</label>
+                              <input type="date" name="tgl" class="form-control" aria-describedby="tgl_event" id="tgl" required>
                             </div>
                             <div class="mb-3">
-                              <label for="password" class="form-label">Password</label>
-                              <input type="password" class="form-control" id="password">
+                                <label class="form-label">Lokasi</label>
+                                <input type="text" name="lokasi" class="form-control" aria-describedby="lokasi" id="lokasi" required>
+                              </div>
+                            <div class="mb-3">
+                              <label for="jam" class="form-label">Jam</label>
+                              <input type="time" name="jam" class="form-control" id="jam" required>
                             </div>
                             <div class="mb-3">
-                              <label for="alamat" class="form-label">Alamat</label>
-                              <input type="alamat" class="form-control" id="alamat">
+                              <label for="harga_tiket" class="form-label">Harga Tiket</label>
+                              <input type="harga_tiket" name="harga_tiket" class="form-control" id="harga_tiket" required>
+                            </div>
+                            <div class="mb-3">
+                              <label for="deskripsi_event" class="form-label">Deskripsi Event</label>
+                              <input type="text" name="deskripsi_event" class="form-control" id="deskripsi_event" required>
                             </div>
                             <div class="text-center">
 
-                                <button type="submit" class="btn text-white" style="background-color: #284b63;">Tambah</button>
+                                <button type="submit" name="submit" class="btn text-white" style="background-color: #284b63;">Tambah</button>
                             </div>
                           </form>
                     </div>
@@ -81,7 +117,7 @@
   <!-- footer -->
   <footer class="align-items-center" style="background-color: #284b63; color: white; text-align: center;padding: 8px;margin-top: 30px;">
     <h3>List Event Banyumas</h3>
-    <p>Lorem ipsum dolor sit amet.</p><br>
+    <p>Explore Budaya dan Event Banyumas</p><br>
     <img src="./img/icons8-twitter-1.svg" alt="" style="background-image: url(./img/rectangle-30.svg);margin-left: 5px;padding-left: 5px;">
     <img src="./img/icons8-facebook-1.svg" alt="" style="background-image: url(./img/rectangle-30.svg);margin-left: 5px;padding-left: 5px;">
     <img src="./img/vector-14.svg" alt="" style="background-image: url(./img/rectangle-30.svg);margin-left: 5px;padding-left: 5px;">

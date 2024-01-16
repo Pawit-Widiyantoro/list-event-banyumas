@@ -1,3 +1,39 @@
+<?php
+session_start();
+require 'pungsi.php';
+//cek apakah sudah masuk ke dalam session melalui login
+if(!isset($_SESSION["login"])){
+  header("Location: login_admin.php");
+  exit;
+}
+
+//ambil data di URL
+$id = $_GET["id"];
+
+//query data user berdasarkan id
+$usr = query("SELECT * FROM user WHERE id_user = '$id'")[0];
+
+//cek apakah submit pernah diklik atau belum
+if(isset($_POST["submit"])){
+
+  //cek apakah data berhasil diubah atau tidak
+  if(editUser($_POST) > 0){
+    echo "<script>
+    alert('Data user berhasil diubah!');
+    document.location.href = 'admin_user.php';
+    </script>";
+  }else{
+    echo "<script>
+    alert('Data user gagal diubah!');
+    document.location.href = 'admin_user.php';
+    </script>";
+  }
+  
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -44,34 +80,35 @@
                     </div>
                     <div class="container" style="padding-right: 150px; padding-left: 150px;">
 
-                        <form class="my-5">
+                        <form action="" method="post" class="my-5">
+                        <input type="hidden" name="id">
                           <div class="mb-3">
                             <label class="form-label">id user</label>
-                            <input type="text" class="form-control" aria-describedby="id_user">
+                            <input type="text" name="id_user" class="form-control" aria-describedby="id_user" required value="<?= $usr["id_user"];?>">
                           </div>
                             <div class="mb-3">
                               <label for="exampleInputEmail1" class="form-label">Nama User</label>
-                              <input type="text" class="form-control" aria-describedby="nama_event">
+                              <input type="text" name="nama" class="form-control" aria-describedby="nama_user" required value="<?= $usr["nama_user"];?>">
                             </div>
                             <div class="mb-3">
                               <label for="email" class="form-label">Email</label>
-                              <input type="email" class="form-control" id="email">
+                              <input type="email" name="email" class="form-control" id="email" required value="<?= $usr["email"];?>">
                             </div>
                             <div class="mb-3">
                               <label for="no_hp" class="form-label">No HP</label>
-                              <input type="text" class="form-control" id="no_hp">
+                              <input type="text" name="no_hp" class="form-control" id="no_hp" required value="<?= $usr["no_telp"];?>">
                             </div>
                             <div class="mb-3">
                               <label for="password" class="form-label">Password</label>
-                              <input type="password" class="form-control" id="password">
+                              <input type="password" name="password" class="form-control" id="password" required value="<?= $usr["password"];?>">
                             </div>
                             <div class="mb-3">
                               <label for="alamat" class="form-label">Alamat</label>
-                              <input type="alamat" class="form-control" id="alamat">
+                              <input type="alamat" name="alamat" class="form-control" id="alamat" required value="<?= $usr["alamat"];?>">
                             </div>
                             <div class="text-center">
 
-                                <button type="submit" class="btn text-white" style="background-color: #284b63;">Edit</button>
+                                <button type="submit" name="submit" class="btn text-white" style="background-color: #284b63;">Edit</button>
                             </div>
                           </form>
                     </div>
@@ -85,7 +122,7 @@
   <!-- footer -->
   <footer class="align-items-center" style="background-color: #284b63; color: white; text-align: center;padding: 8px;margin-top: 30px;">
     <h3>List Event Banyumas</h3>
-    <p>Lorem ipsum dolor sit amet.</p><br>
+    <p>Explore Budaya dan Event Banyumas</p><br>
     <img src="./img/icons8-twitter-1.svg" alt="" style="background-image: url(./img/rectangle-30.svg);margin-left: 5px;padding-left: 5px;">
     <img src="./img/icons8-facebook-1.svg" alt="" style="background-image: url(./img/rectangle-30.svg);margin-left: 5px;padding-left: 5px;">
     <img src="./img/vector-14.svg" alt="" style="background-image: url(./img/rectangle-30.svg);margin-left: 5px;padding-left: 5px;">

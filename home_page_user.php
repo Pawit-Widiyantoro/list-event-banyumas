@@ -124,18 +124,19 @@ if(isset($_POST['cari'])){
       </div>
       <?php endforeach; ?>
 <!-- end card -->
-  <!-- footer -->
-  <footer class="align-items-center" style="background-color: #284b63; color: white; text-align: center;padding: 8px;margin-top: 30px;">
-    <h3>List Event Banyumas</h3>
-    <p>Lorem ipsum dolor sit amet.</p><br>
-    <img src="./img/icons8-twitter-1.svg" alt="" style="background-image: url(./img/rectangle-30.svg);margin-left: 5px;padding-left: 5px;">
-    <img src="./img/icons8-facebook-1.svg" alt="" style="background-image: url(./img/rectangle-30.svg);margin-left: 5px;padding-left: 5px;">
-    <img src="./img/vector-14.svg" alt="" style="background-image: url(./img/rectangle-30.svg);margin-left: 5px;padding-left: 5px;">
-    <img src="./img/vector-16.svg" alt="" style="background-image: url(./img/rectangle-30.svg);margin-left: 5px;padding-left: 5px;">
-    <br><br><br>
-    <p>Copyright List Event Banyumas. All right reserved.</p>
-  </footer>
 </div>
+      </div>
+<!-- footer -->
+<footer class="align-items-center" style="background-color: #284b63; color: white; text-align: center;padding: 8px;margin-top: 30px;">
+  <h3>List Event Banyumas</h3>
+  <p>Lorem ipsum dolor sit amet.</p><br>
+  <img src="./img/icons8-twitter-1.svg" alt="" style="background-image: url(./img/rectangle-30.svg);margin-left: 5px;padding-left: 5px;">
+  <img src="./img/icons8-facebook-1.svg" alt="" style="background-image: url(./img/rectangle-30.svg);margin-left: 5px;padding-left: 5px;">
+  <img src="./img/vector-14.svg" alt="" style="background-image: url(./img/rectangle-30.svg);margin-left: 5px;padding-left: 5px;">
+  <img src="./img/vector-16.svg" alt="" style="background-image: url(./img/rectangle-30.svg);margin-left: 5px;padding-left: 5px;">
+  <br><br><br>
+  <p>Copyright List Event Banyumas. All right reserved.</p>
+</footer>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var detailLinks = document.querySelectorAll('.text-wrapper-3, .text-wrapper-6, .text-wrapper-9, .text-wrapper-12, .text-wrapper-15, .text-wrapper-18, .text-wrapper-21, .text-wrapper-24, .text-wrapper-27, .text-wrapper-30, .text-wrapper-33, .text-wrapper-36, .text-wrapper-40');

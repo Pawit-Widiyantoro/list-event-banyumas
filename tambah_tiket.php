@@ -1,3 +1,25 @@
+<?php
+require 'functions.php';
+
+//cek apakah submit pernah diklik atau belum
+if(isset($_POST["submit"])){
+
+  //cek apakah data berhasil ditambahkan atau tidak
+  if(tambahUser($_POST) > 0){
+    echo "<script>
+    alert('Data user baru berhasil ditambahkan!');
+    document.location.href = 'admin_user.php';
+    </script>";
+  }else{
+    echo "<script>
+    alert('Data user baru gagal ditambahkan!');
+    document.location.href = 'admin_user.php';
+    </script>";
+  }
+  
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -40,46 +62,38 @@
                 <div class="card-body" style="margin: 0;padding: 0;">
                     <div class="table-title text-center p-3" style="  
                     height: 60px; background-color: #D9D9D9;">
-                        <p>Edit Event</p>
+                        <p>Tambah Tiket</p>
                     </div>
                     <div class="container" style="padding-right: 150px; padding-left: 150px;">
 
-                        <form class="my-5">
+                        <form action="" method="post" class="my-5">
                             <div class="mb-3">
-                              <label class="form-label">id event</label>
-                              <input type="text" class="form-control" aria-describedby="id_event">
-                            </div>
-                            <div class="mb-3">
-                              <label class="form-label">Poster</label>
-                              <input type="text" class="form-control" aria-describedby="poster">
-                            </div>
-                            <div class="mb-3">
-                              <label class="form-label">Nama Event</label>
-                              <input type="text" class="form-control" aria-describedby="nama_event">
+                              <label class="form-label">id user</label>
+                              <input type="text" name="id_user" class="form-control" aria-describedby="id_user" required>
                             </div>
                             <div class="mb-3">
                               <label class="form-label">Tgl Event</label>
-                              <input type="date" class="form-control" aria-describedby="tgl_event">
+                              <input type="date" name="tgl_event" class="form-control" aria-describedby="tgl_event" required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Lokasi</label>
-                                <input type="text" class="form-control" aria-describedby="lokasi">
-                              </div>
-                            <div class="mb-3">
                               <label for="jam" class="form-label">Jam</label>
-                              <input type="time" class="form-control" id="jam">
+                              <input type="time" name="jam" class="form-control" id="jam" required>
+                            </div>
+                            <div class="mb-3">
+                              <label for="jumlah_tiket" class="form-label">Jumlah Tiket</label>
+                              <input type="text" name="jumlah_tiket" class="form-control" id="jumlah_tiket" required>
                             </div>
                             <div class="mb-3">
                               <label for="harga_tiket" class="form-label">Harga Tiket</label>
-                              <input type="harga_tiket" class="form-control" id="harga_tiket">
+                              <input type="harga_tiket" name="harga_tiket" class="form-control" id="harga_tiket" required>
                             </div>
                             <div class="mb-3">
-                              <label for="deskripsi_event" class="form-label">Deskripsi Event</label>
-                              <input type="text" class="form-control" id="deskripsi_event">
+                              <label for="metode_pembayaran" class="form-label">Metode Pembayaran</label>
+                              <input type="text" name="metode_pembayaran" class="form-control" id="metode_pembayaran" required>
                             </div>
                             <div class="text-center">
 
-                                <button type="submit" class="btn text-white" style="background-color: #284b63;">Edit</button>
+                                <button type="submit" class="btn text-white" style="background-color: #284b63;">Tambah</button>
                             </div>
                           </form>
                     </div>

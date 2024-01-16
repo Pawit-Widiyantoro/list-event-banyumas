@@ -1,3 +1,21 @@
+<?php
+session_start();
+require 'pungsi.php';
+//cek apakah sudah masuk ke dalam session melalui login
+if(!isset($_SESSION["login"])){
+  header("Location: login_admin.php");
+  exit;
+}
+
+
+$tiket = query("SELECT * FROM tiket ORDER BY id_tiket DESC");
+
+//tombol cari dklik
+if(isset($_POST["cari"])){
+  $tiket = cariTiket($_POST["keyword"]);
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -24,23 +42,25 @@
             Administrator
         </div>
         <div class="navbar-left ms-5">
+        <a href = "logout.php">
             <button class="btn badge bg-white me-5" style="border-radius: 20px;">
                 <img src="./img/account-pin-circle-fill-1-1.svg" class="me-2" width="25" height="25" alt="User Icon"/>
                 <img src="img/arrow-right-s-line 2.png" width="25" height="25" alt="Arrow Icon"/>
             </button>
+        </a>
         </div>
     </div>
 </nav>
 
 <!-- main -->
 <div class="container-fluid mt-5">
-  <div class="row">
+  <div class="row align-items-center">
     <div style="width: 220px;">
-      <div class="card" style="border-radius: 0; border-top: 10px solid #284b63;border-bottom: 10px solid #284b63;margin-top: 250px;">
+      <div class="card" style="border-radius: 0; border-top: 10px solid #284b63;border-bottom: 10px solid #284b63;">
         <div class="card-body mx-4 my-2">
-          <a href="admin_user.html" class="mb-4 d-block text-decoration-none text-black" >user</a>
-          <a href="admin_event.html" class="mb-4 d-block text-decoration-none text-black" >event</a>
-          <a href="admin_tiket.html" class="d-block text-decoration-none text-black" >tiket</a>
+          <a href="admin_user.php" class="mb-4 d-block text-decoration-none text-black" >User</a>
+          <a href="admin_event.php" class="mb-4 d-block text-decoration-none text-black" >Event</a>
+          <a href="admin_tiket.php" class="d-block text-decoration-none text-black" >Tiket</a>
         </div>
       </div>
     </div>
@@ -48,18 +68,18 @@
       <div class="card" style="border-radius: 0;border-top: 10px solid #284b63;border-bottom: 10px solid #284b63;">
         <div class="card-body " style="margin: 0;padding: 0;">
           <nav class="navbar table-navbar " style="  
-          height: 87px; background-color: #D9D9D9;">
+          height: 87px; background-color: #D9D9D9;;">
           <div class="container">
 
-            <div class="custom-button">
+           <!-- <div class="custom-button">
               <button class="btn" style="background-color: white;">
-                <a href="tambah_event.html" class="text-decoration-none text-black">
+                <a href="tambah_tiket.php" class="text-decoration-none text-black">
                   <img src="img/add-circle-fill 1.svg"/>
                  ADD NEW
                 </a>
               </button>
             </div>
-            <div class="table-title">Event</div>
+            <div class="table-title">Tiket</div>-->
             <div class="search">
 
               <form action="" method="POST">
@@ -78,81 +98,40 @@
             <table class="table table-striped">
               <thead>
                 <th style="width: 80px;" class="text-center">Action</th>
-                <th style="width: 80px;">id event</th>
-                <th style="width: 100px;">poster</th>
-                <th style="width: 180px;">nama event</th>
-                <th style="width: 90px;">tgl event</th>
-                <th style="width: 150px;">lokasi</th>
-                <th style="width: 70px;">jam</th>
-                <th style="width: 120px;">harga tiket</th>
-                <th style="width: 200px;">deskripsi</th>
+                <th style="width: 70px;">id tiket</th>
+                <th style="width: 70px;">id user</th>
+                <th style="width: 70px;">id event</th>
+                <th style="width: 80px;">tgl event</th>
+                <th style="width: 60px;">jam</th>
+                <th style="width: 80px;">jumlah tiket</th>
+                <th style="width: 80px;">harga tiket</th>
+                <th style="width: 150px;">metode pembayaran</th>
                 
               </thead>
               <tbody class="align-middle">
+
+              <?php ?>
+                <?php foreach($tiket as $row): 
+                ?>
                 <tr>
                   <td class="text-center">
+                  <a href="delete_tiket.php?id=<?= $row["id_tiket"];?>"onclick="return confirm('Yakin ingin menghapus data?');">
                     <img src="./img/close-circle-line 1.png" alt="">
-                    <a href="edit-event.html">
+                    <!--<a href="edit_tiket.html">
                       <img src="./img/write.svg" alt="">
-                    </a>
+                    </a>-->
                   </td>
-                  <td>id event</td>
-                  <td><img src="./img/coklat hitam musik event festival.png" alt="" width="80" height="120" style="margin-top:10px;margin-bottom:10px;object-fit:cover;"></td>
-                  <td>nama event</td>
-                  <td>tgl event</td>
-                  <td>lokasi</td>
-                  <td>jam</td>
-                  <td>harga tiket</td>
-                  <td>deskripsi</td>
+                  <td><?=$row["id_tiket"];?></td>
+                  <td><?=$row["id_user"];?></td>
+                  <td><?=$row["id_event"];?></td>
+                  <td><?=$row["tgl_event"];?></td>
+                  <td><?=$row["jam"];?></td>
+                  <td><?=$row["jumlah_tiket"];?></td>
+                  <td><?=$row["harga_tiket"];?></td>
+                  <td><?=$row["metode_pembayaran"];?></td>
                 </tr>
-                <tr>
-                  <td class="text-center">
-                    <img src="./img/close-circle-line 1.png" alt="">
-                    <a href="edit-event.html">
-                      <img src="./img/write.svg" alt="">
-                    </a>
-                  </td>
-                  <td>id event</td>
-                  <td><img src="./img/coklat hitam musik event festival.png" alt="" width="80" height="120" style="margin-top:10px;margin-bottom:10px;object-fit:cover;"></td>
-                  <td>nama event</td>
-                  <td>tgl event</td>
-                  <td>lokasi</td>
-                  <td>jam</td>
-                  <td>harga tiket</td>
-                  <td>deskripsi</td>
-                </tr>
-                <tr>
-                  <td class="text-center">
-                    <img src="./img/close-circle-line 1.png" alt="">
-                    <a href="edit-event.html">
-                      <img src="./img/write.svg" alt="">
-                    </a>
-                  </td>
-                  <td>id event</td>
-                  <td><img src="./img/coklat hitam musik event festival.png" alt="" width="80" height="120" style="margin-top:10px;margin-bottom:10px;object-fit:cover;"></td>
-                  <td>nama event</td>
-                  <td>tgl event</td>
-                  <td>lokasi</td>
-                  <td>jam</td>
-                  <td>harga tiket</td>
-                  <td>deskripsi</td>
-                </tr>
-                <tr>
-                  <td class="text-center">
-                    <img src="./img/close-circle-line 1.png" alt="">
-                    <a href="edit-event.html">
-                      <img src="./img/write.svg" alt="">
-                    </a>
-                  </td>
-                  <td>id event</td>
-                  <td><img src="./img/coklat hitam musik event festival.png" alt="" width="80" height="120" style="margin-top:10px;margin-bottom:10px;object-fit:cover;"></td>
-                  <td>nama event</td>
-                  <td>tgl event</td>
-                  <td>lokasi</td>
-                  <td>jam</td>
-                  <td>harga tiket</td>
-                  <td>deskripsi</td>
-                </tr>
+                <?php?>
+                <?php endforeach; ?>               
                
               </tbody>
             </table>
@@ -167,7 +146,7 @@
   <!-- footer -->
   <footer class="align-items-center" style="background-color: #284b63; color: white; text-align: center;padding: 8px;margin-top: 30px;">
     <h3>List Event Banyumas</h3>
-    <p>Lorem ipsum dolor sit amet.</p><br>
+    <p>Explore Budaya dan Event Banyumas</p><br>
     <img src="./img/icons8-twitter-1.svg" alt="" style="background-image: url(./img/rectangle-30.svg);margin-left: 5px;padding-left: 5px;">
     <img src="./img/icons8-facebook-1.svg" alt="" style="background-image: url(./img/rectangle-30.svg);margin-left: 5px;padding-left: 5px;">
     <img src="./img/vector-14.svg" alt="" style="background-image: url(./img/rectangle-30.svg);margin-left: 5px;padding-left: 5px;">

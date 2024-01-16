@@ -1,3 +1,38 @@
+<?php
+session_start();
+require 'pungsi.php';
+//cek apakah sudah masuk ke dalam session melalui login
+if(!isset($_SESSION["login"])){
+  header("Location: login_admin.php");
+  exit;
+}
+
+//ambil data di URL
+$id = $_GET["id"];
+
+//query data user berdasarkan id
+$evt = query("SELECT * FROM event WHERE id_event = '$id'")[0];
+
+//cek apakah submit pernah diklik atau belum
+if(isset($_POST["submit"])){
+
+  //cek apakah data berhasil diubah atau tidak
+  if(editEvent($_POST) > 0){
+    echo "<script>
+    alert('Data event berhasil diubah!');
+    document.location.href = 'admin_event.php';
+    </script>";
+  }else{
+    echo "<script>
+    alert('Data event gagal diubah!');
+    document.location.href = 'admin_event.php';
+    </script>";
+  }
+  
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -40,38 +75,48 @@
                 <div class="card-body" style="margin: 0;padding: 0;">
                     <div class="table-title text-center p-3" style="  
                     height: 60px; background-color: #D9D9D9;">
-                        <p>Tambah Tiket</p>
+                        <p>Edit Event</p>
                     </div>
                     <div class="container" style="padding-right: 150px; padding-left: 150px;">
 
-                        <form class="my-5">
+                        <form action="" method="post" enctype="multipart/form-data" class="my-5">
+                          <input type="hidden" name="posterLama" value="<?= $evt["poster"];?>">
                             <div class="mb-3">
-                              <label class="form-label">id user</label>
-                              <input type="text" class="form-control" aria-describedby="id_user">
+                              <label class="form-label">id event</label>
+                              <input type="text" name="id_event" class="form-control" aria-describedby="id_event" required value="<?= $evt["id_event"];?>">
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label">Poster</label><br>
+                              <img src="img/<?= $evt['poster'];?>" width="100px"><br>
+                              <input type="file" name="poster" class="form-control" aria-describedby="poster">
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label">Nama Event</label>
+                              <input type="text" name="nama_event" class="form-control" aria-describedby="nama_event"required value="<?= $evt["nama_event"];?>">
                             </div>
                             <div class="mb-3">
                               <label class="form-label">Tgl Event</label>
-                              <input type="date" class="form-control" aria-describedby="tgl_event">
+                              <input type="date" name="tgl_event" class="form-control" aria-describedby="tgl_event"required value="<?= $evt["tgl_event"];?>">
                             </div>
+                            <div class="mb-3">
+                                <label class="form-label">Lokasi</label>
+                                <input type="text" name="lokasi" class="form-control" aria-describedby="lokasi"required value="<?= $evt["lokasi"];?>">
+                              </div>
                             <div class="mb-3">
                               <label for="jam" class="form-label">Jam</label>
-                              <input type="time" class="form-control" id="jam">
-                            </div>
-                            <div class="mb-3">
-                              <label for="jumlah_tiket" class="form-label">Jumlah Tiket</label>
-                              <input type="text" class="form-control" id="jumlah_tiket">
+                              <input type="time" name="jam" class="form-control" id="jam"required value="<?= $evt["jam"];?>">
                             </div>
                             <div class="mb-3">
                               <label for="harga_tiket" class="form-label">Harga Tiket</label>
-                              <input type="harga_tiket" class="form-control" id="harga_tiket">
+                              <input type="harga_tiket" name="harga_tiket" class="form-control" id="harga_tiket"required value="<?= $evt["harga_tiket"];?>">
                             </div>
                             <div class="mb-3">
-                              <label for="metode_pembayaran" class="form-label">Metode Pembayaran</label>
-                              <input type="text" class="form-control" id="metode_pembayaran">
+                              <label for="deskripsi_event" class="form-label">Deskripsi Event</label>
+                              <input type="text" name="deskripsi_event" class="form-control" id="deskripsi_event"required value="<?= $evt["deskripsi_event"];?>">
                             </div>
                             <div class="text-center">
 
-                                <button type="submit" class="btn text-white" style="background-color: #284b63;">Tambah</button>
+                                <button type="submit" name="submit" class="btn text-white" style="background-color: #284b63;">Edit</button>
                             </div>
                           </form>
                     </div>
